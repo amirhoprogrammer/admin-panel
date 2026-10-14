@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 type FormErrors = {
   email?: string;
@@ -47,10 +48,6 @@ export default function LoginForm() {
 
     setLoading(true);
     try {
-      // TODO: وقتی API آماده شد، درخواست لاگین را اینجا بفرست
-      // const res = await fetch("/api/login", { ... });
-
-      // فعلاً: ریدایرکت به همین صفحه
       router.push("/login");
       router.refresh();
     } finally {
@@ -59,18 +56,26 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-md shadow-xl w90 py-5 rounded-lg">
-      <div className="text-center">
-        <h1 className="text-2xl">ورود به پنل</h1>
-        <p>ایمیل و رمز عبور خود را وارد کنید</p>
+    <div className="w-full max-w-md shadow-xl w90 py-5 rounded-lg bg-background">
+      <div className="text-center flex items-center justify-between">
+        <h1 className="text-2xl ">ورود به پنل</h1>
+        {/* 20px = 5 , 30px = 7.5 , 40px = 10, 50px = 12.5*/}
+        <Image
+          src="/logo2.webp"
+          alt="logo"
+          width={50}
+          height={50}
+          className="w-7.5 h-5 md:w-10 md:h-7.5 lg:w-12.5 lg:h-10"
+        />
       </div>
       <div className="m-4">
-        {/* noValidate: جلوگیری از پیام‌های پیش‌فرض مرورگر */}
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
-          {/* ایمیل */}
-          <div className="space-y-2">
+          <div className="space-y-4 min-h-8">
             <div className="flex gap-2">
-              <label htmlFor="email">ایمیل</label>
+              {/* 56px = 14*/}
+              <label htmlFor="email" className="min-w-14">
+                ایمیل:
+              </label>
               <input
                 id="email"
                 type="email"
@@ -92,10 +97,9 @@ export default function LoginForm() {
             )}
           </div>
 
-          {/* رمز عبور */}
-          <div className="space-y-2">
+          <div className="space-y-4 min-h-8">
             <div className="flex gap-2">
-              <label htmlFor="password">رمز عبور</label>
+              <label htmlFor="password">رمز عبور:</label>
               <input
                 id="password"
                 type="password"
@@ -119,7 +123,12 @@ export default function LoginForm() {
             )}
           </div>
 
-          <Button type="submit" className="w-full" disabled={loading}>
+          <Button
+            type="submit"
+            className="w-full"
+            disabled={loading}
+            variant="neutral"
+          >
             {loading ? "در حال ورود..." : "ورود"}
           </Button>
         </form>

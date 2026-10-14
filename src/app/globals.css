@@ -94,7 +94,7 @@
   --color-secondary-bg: var(--secondary-bg);
   --color-foreground: var(--foreground);
 
-  --color-custom-primary: var(--custom-primary);
+  --color-brand: var(--custom-primary);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
