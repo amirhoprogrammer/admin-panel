@@ -91,9 +91,11 @@ export default function LoginForm() {
             </div>
 
             {errors.email && (
-              <p id="email-error" className="text-sm text-destructive">
-                {errors.email}
-              </p>
+              <div className="bg-destructive p-2 rounded-lg shadow-2xl">
+                <p id="email-error" className="text-sm text-background">
+                  {errors.email}
+                </p>
+              </div>
             )}
           </div>
 
@@ -117,9 +119,11 @@ export default function LoginForm() {
             </div>
 
             {errors.password && (
-              <p id="password-error" className="text-sm text-destructive">
-                {errors.password}
-              </p>
+              <div className="bg-destructive p-2 rounded-lg shadow-2xl">
+                <p id="password-error" className="text-sm text-background">
+                  {errors.password}
+                </p>
+              </div>
             )}
           </div>
 
