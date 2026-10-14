@@ -71,9 +71,9 @@ export default function LoginForm() {
       <div className="m-4">
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
           <div className="space-y-4 min-h-8">
-            <div className="flex gap-2">
+            <div className="flex flex-col xs:flex-row xs:gap-2 ">
               {/* 56px = 14*/}
-              <label htmlFor="email" className="min-w-14">
+              <label htmlFor="email" className="min-w-18  text-xl py-2">
                 ایمیل:
               </label>
               <input
@@ -86,7 +86,7 @@ export default function LoginForm() {
                 dir="ltr"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? "email-error" : undefined}
-                className="border-b-2 border-foreground outline-none"
+                className="border-2 border-border outline-none rounded-lg p-2 bg-input shadow-2xl"
               />
             </div>
 
@@ -100,8 +100,10 @@ export default function LoginForm() {
           </div>
 
           <div className="space-y-4 min-h-8">
-            <div className="flex gap-2">
-              <label htmlFor="password">رمز عبور:</label>
+            <div className="flex flex-col xs:flex-row  xs:gap-2">
+              <label htmlFor="password" className="text-xl py-2">
+                رمز عبور:
+              </label>
               <input
                 id="password"
                 type="password"
@@ -114,7 +116,7 @@ export default function LoginForm() {
                 aria-describedby={
                   errors.password ? "password-error" : undefined
                 }
-                className="border-b-2 border-foreground outline-none"
+                className="border-2 border-border outline-none rounded-lg p-2 bg-input shadow-2xl"
               />
             </div>
 
