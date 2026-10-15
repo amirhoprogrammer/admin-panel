@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import "./globals.css";
-
-const vazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
-  variable: "--font-vazirmatn",
-  display: "swap",
-});
+import { iranYekan } from "./fonts";
 
 export const metadata: Metadata = {
   title: "پنل ادمین",
@@ -19,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fa" dir="rtl" className={vazirmatn.variable}>
+    <html lang="fa" dir="rtl" className={iranYekan.variable}>
       <body className="font-sans antialiased ">{children}</body>
     </html>
   );

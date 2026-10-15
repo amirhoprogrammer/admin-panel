@@ -57,8 +57,10 @@ export default function LoginForm() {
 
   return (
     <div className="w-full max-w-md shadow-xl w90 py-5 rounded-lg bg-background">
-      <div className="text-center flex items-center justify-center gap-2">
-        <h1 className="text-2xl ">ورود به پنل مدیریت</h1>
+      <div className="text-center flex gap-2">
+        <h1 className="text-2xl font-semibold text-start">
+          ورود به پنل مدیریت
+        </h1>
         {/* 20px = 5 , 30px = 7.5 , 40px = 10, 50px = 12.5*/}
         <Image
           src="/logo2.webp"
@@ -72,9 +74,12 @@ export default function LoginForm() {
       <div className="m-4">
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
           <div className="space-y-4 min-h-8 my-4">
-            <div className="flex flex-col xs:flex-row xs:gap-2 ">
+            <div className="flex flex-col xs:flex-row xs:gap-2 w-full">
               {/* 56px = 14*/}
-              <label htmlFor="email" className="min-w-18  text-xl py-2">
+              <label
+                htmlFor="email"
+                className="min-w-18 text-xl py-2 font-sans"
+              >
                 ایمیل:
               </label>
               <input
@@ -87,7 +92,7 @@ export default function LoginForm() {
                 dir="ltr"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? "email-error" : undefined}
-                className="border-2 border-border outline-none rounded-lg p-2 bg-input shadow-2xl"
+                className="border-2 border-border outline-none rounded-lg p-2 bg-input shadow-2xl w-full"
               />
             </div>
 
@@ -101,8 +106,8 @@ export default function LoginForm() {
           </div>
 
           <div className="space-y-4 min-h-8 my-4">
-            <div className="flex flex-col xs:flex-row  xs:gap-2">
-              <label htmlFor="password" className="text-xl py-2">
+            <div className="flex flex-col xs:flex-row  xs:gap-2 ">
+              <label htmlFor="password" className="text-xl py-2 font-sans">
                 رمز عبور:
               </label>
               <input
@@ -141,7 +146,7 @@ export default function LoginForm() {
         </form>
         <div className="border-b-2 border-border mb-2 my-4"></div>
         <div className="text-center flex items-center justify-center gap-2">
-          <h6 className="text-sm text-muted-foreground">
+          <h6 className="text-sm text-muted-foreground font-light">
             دسترسی به این بخش برای کاربران مجاز امکان پذیر است
           </h6>
         </div>
