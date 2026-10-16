@@ -4,7 +4,7 @@ import DashbordLayout from "./DashbordLayout";
 
 export default function DashbordSidebar() {
   return (
-    <div className="w90">
+    <div className="w90 h-full w-full border-border border-l">
       <div className="border-b border-border p-4 flex flex-col gap-2">
         <h2 className="text-xl font-semibold">آرکان مدیریت</h2>
         <p className="text-base font-normal text-muted-foreground">

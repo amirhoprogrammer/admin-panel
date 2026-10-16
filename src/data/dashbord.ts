@@ -12,3 +12,9 @@ export const Dashbordlayouts = [
     layoutText: "پیام های دریافتی",
   },
 ];
+export const DashbordBodyItems = [
+  {
+    title: "داشبورد",
+    description: "نمای کلی وضعیت و اطلاعات پنل مدیریت آرکات",
+  },
+];

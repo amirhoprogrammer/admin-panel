@@ -5,7 +5,7 @@ import React from "react";
 export default function Dashbord() {
   return (
     <main className="flex">
-      <section className="w-[18%] border-border border-l">
+      <section className="w-full">
         <DashbordMain />
       </section>
     </main>
