@@ -3,7 +3,12 @@ import Dashbord from "./(dashbord)/page";
 
 export default function Home() {
   //redirect("/login");
-  <>
-    <Dashbord />
-  </>
+  //<>
+  //  <Dashbord />
+  //</>
+  return (
+    <>
+      <Dashbord />
+    </>
+  );
 }
