@@ -6,15 +6,15 @@ interface HeaderItems {
 }
 export default function DashbordHeader({ items }: { items: HeaderItems }) {
   return (
-    <div>
+    <div className="w-[85%]">
       <section className="border-b border-border py-4 px-1 flex items-center justify-between">
         <div className="flex flex-col gap-2">
           <h1>{items.title}</h1>
           <p>{items.description}</p>
         </div>
-        <button>
+        <button className="border border-border bg-brand text-background cursor-pointer rounded-lg flex items-center justify-center gap-2 h-13 mt-10">
           <LogIn />
-          <span>خروج</span>
+          <span className="mb-2">خروج</span>
         </button>
       </section>
     </div>
