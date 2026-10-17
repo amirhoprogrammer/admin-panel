@@ -34,8 +34,8 @@ export default function DashbordLayout({ items, isActive }: Props) {
         }`}
       >
         <Icon
-          className={`size-4 shrink-0 group-hover:text-custom-primary ${
-            isActive ? "text-custom-primary" : "text-muted-foreground"
+          className={`size-4 shrink-0 group-hover:text-foreground ${
+            isActive ? "text-brand" : "text-muted-foreground"
           }`}
         />
         <p
