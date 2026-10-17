@@ -1,6 +1,7 @@
 import { LogIn } from "lucide-react";
 import React from "react";
 interface HeaderItems {
+  id: number;
   title: string;
   description: string;
 }
