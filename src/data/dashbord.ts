@@ -2,13 +2,13 @@ import { LayoutDashboard, Mail } from "lucide-react";
 
 export const Dashbordlayouts = [
   {
-    id: 0,
+    slug: "dashboard",
     layoutTitle: "نمای کلی",
     layoutIcon: LayoutDashboard,
     layoutText: "داشبورد",
   },
   {
-    id: 1,
+    slug: "messages",
     layoutTitle: "درخواست ها",
     layoutIcon: Mail,
     layoutText: "پیام های دریافتی",
@@ -16,13 +16,13 @@ export const Dashbordlayouts = [
 ];
 export const DashbordBodyItems = [
   {
-    id: 0,
+    slug: "dashboard",
     title: "داشبورد",
     description: "نمای کلی وضعیت و اطلاعات پنل مدیریت آرکات",
   },
   {
-    id: 1,
+    slug: "messages",
     title: "پیام های دریافتی",
-    description: "در یافت پیام هایی از طرف مدیریت و کارمندان",
+    description: "دریافت پیام هایی از طرف مدیریت و کارمندان",
   },
 ];
