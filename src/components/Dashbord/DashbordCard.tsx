@@ -1,5 +1,14 @@
-import { Trash } from "lucide-react";
-import React from "react";
+"use client";
+import {
+  CalendarDays,
+  Mail,
+  MessageSquareText,
+  Phone,
+  Trash,
+  User,
+} from "lucide-react";
+import React, { useState } from "react";
+import Modal from "../other/Modal";
 interface Cards {
   id: number;
   name: string;
@@ -25,15 +34,32 @@ const dates = (
     return null;
   } else if (hour < 10) {
     hours = "0" + hour;
+    if (minute < 10) {
+      minutes = "0" + minute;
+    } else {
+      minutes = `${minute}`;
+    }
   } else if (minute < 10) {
-    minutes = "0" + hour;
+    minutes = "0" + minute;
+    if (hour < 10) {
+      hours = "0" + hour;
+    } else {
+      hours = `${hour}`;
+    }
+  } else {
+    hours = `${hour}`;
+    minutes = `${minute}`;
   }
-  const date = `${hours} : ${minutes} , ${year} ${month} ${day}`;
+  const date = `${year} ${month} ${day} , ${minutes} : ${hours}`;
   return date;
 };
 export default function DashbordCard({ items }: { items: Cards }) {
+  const [selected, setSelected] = useState(0);
   return (
-    <div className="flex items-center justify-between rounded-lg border border-border px-2 py-2">
+    <div
+      onClick={() => setSelected(1)}
+      className="flex items-center justify-between rounded-lg border border-border px-2 py-2"
+    >
       <p className="font-normal text-muted-foreground">{items.id}</p>
       <p className="font-normal">{items.name}</p>
       <p className="font-normal text-muted-foreground">{items.phone}</p>
@@ -49,6 +75,75 @@ export default function DashbordCard({ items }: { items: Cards }) {
         <Trash className="text-destructive" />
         <p className="text-destructive font-normal text-base">حذف</p>
       </button>
+      <Modal
+        isOpen={!!selected}
+        onClose={() => setSelected(0)}
+        title="جزییات پیام"
+      >
+        {selected == 1 && (
+          <div className="rounded-lg w-full flex flex-col overflow-hidden">
+            <div className="flex w-full">
+              <div className="w-[50%] items-center justify-center p-2 border-border border">
+                <div className="flex px-2 py-2 gap-2">
+                  <User />
+                  <p className="text-sm text-muted-foreground">
+                    نام و نام خانوادگی
+                  </p>
+                </div>
+                <div className="px-2 py-2">
+                  <p className="text-sm text-muted-foreground">{items.name}</p>
+                </div>
+              </div>
+              <div className="w-[50%] items-center justify-center p-2 border-border border">
+                <div className="flex px-2 py-2 gap-2">
+                  <Phone />
+                  <p className="text-sm text-muted-foreground">شماره همراه</p>
+                </div>
+                <div className="px-2 py-2">
+                  <p className="text-sm text-muted-foreground">{items.phone}</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex w-full">
+              <div className="w-[50%] items-center justify-center p-2 border-border border">
+                <div className="flex px-2 py-2 gap-2">
+                  <Mail />
+                  <p className="text-sm text-muted-foreground">ایمیل</p>
+                </div>
+                <div className="px-2 py-2">
+                  <p className="text-sm text-muted-foreground">{items.email}</p>
+                </div>
+              </div>
+              <div className="w-[50%] items-center justify-center p-2 border-border border">
+                <div className="flex px-2 py-2 gap-2">
+                  <CalendarDays />
+                  <p className="text-sm text-muted-foreground">تاریخ ثبت</p>
+                </div>
+                <div className="px-2 py-2">
+                  <p className="text-sm text-muted-foreground">
+                    {dates(
+                      items.day,
+                      items.month,
+                      items.year,
+                      items.hour,
+                      items.minute
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="my-2 flex flex-col gap-4">
+              <div className="flex gap-2">
+                <MessageSquareText className="text-brand" />
+                <p className="text-base font-semibold">متن پیام</p>
+              </div>
+              <div className="px-4 bg-secondary-bg rounded-lg">
+                {items.message}
+              </div>
+            </div>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 }
