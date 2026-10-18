@@ -8,7 +8,7 @@ interface HeaderItems {
 export default function DashbordHeader({ items }: { items: HeaderItems }) {
   return (
     <div className="w-full border-b border-border">
-      <section className="py-4 px-8 flex items-center justify-between">
+      <section className="py-4 px-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-2">
           <h1 className="font-semibold text-2xl">{items.title}</h1>
           <p className="font-base ">{items.description}</p>
