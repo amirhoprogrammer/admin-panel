@@ -52,6 +52,7 @@
   --accent: #c78c16;
   --accent-foreground: #201807;
 
+  --delete : #ffc1b5;
   --destructive: #dc2626;
   --destructive-foreground: #fff;
   --success: #168a46;
@@ -119,6 +120,7 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
 
+  --color-delete: var(--delete);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-success: var(--success);

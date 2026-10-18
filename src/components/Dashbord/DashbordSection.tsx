@@ -1,4 +1,6 @@
 import { ArrowDownUp, Search } from "lucide-react";
+import DashbordCard from "./DashbordCard";
+import { DashbordCardItem } from "@/data/dashbord";
 const rows = [
   "شناسه",
   "نام و نام خانوادگی",
@@ -56,6 +58,12 @@ export default function DashbordSection() {
           <p className="font-normal text-muted-foreground" key={id}>
             {row}
           </p>
+        ))}
+      </div>
+      {/* 450px = 112.5 */}
+      <div className="flex flex-col gap-2 px-4 py-2 h-112.5">
+        {DashbordCardItem.map((card, id) => (
+          <DashbordCard items={card} key={id} />
         ))}
       </div>
     </div>
