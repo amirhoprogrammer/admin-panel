@@ -65,15 +65,18 @@ export default function DashbordCard({ items }: { items: Cards }) {
       <p className="font-normal text-muted-foreground">{items.phone}</p>
       <p className="font-normal text-muted-foreground">{items.email}</p>
       {/* 75px = 18.75 */}
-      <p className="font-normal text-muted-foreground w-18.75 truncate">
+      <p
+        className="font-normal text-muted-foreground w-18.75 truncate"
+        dir="ltr"
+      >
         {items.message}
       </p>
       <p className="font-normal text-muted-foreground">
         {dates(items.day, items.month, items.year, items.hour, items.minute)}
       </p>
       <button className="bg-delete rounded-lg py-4 px-4 flex gap-2">
-        <Trash className="text-destructive" />
-        <p className="text-destructive font-normal text-base">حذف</p>
+        <Trash className="text-destructive size-4.5 mt-1" />
+        <p className="text-destructive font-semibold text-sm">حذف</p>
       </button>
       <Modal
         isOpen={!!selected}

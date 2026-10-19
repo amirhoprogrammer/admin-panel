@@ -1,11 +1,11 @@
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+import LoginForm from "@/components/auth/LoginForm";
+import React from "react";
+
+export default function Login() {
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-background md:bg-secondary-bg px-4">
-      {children}
+      <LoginForm />
     </main>
   );
 }

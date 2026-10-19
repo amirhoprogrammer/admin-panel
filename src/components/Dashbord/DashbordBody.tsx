@@ -9,8 +9,8 @@ export default function DashbordBody({ activeSlug }: { activeSlug: string }) {
   return (
     <div className="w-full">
       <DashbordHeader items={current} />
-      <div className="w90 py-5">
-        <DashbordSection />
+      <div className="px-4 py-5">
+        {/*<DashbordSection activeSlug={activeSlug} />*/}
       </div>
     </div>
   );

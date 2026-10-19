@@ -48,7 +48,7 @@ export default function DashbordSection() {
         >
           <Search className="size-5" />
         </button>
-        <button className="rounded-lg bg-background border border-border px-2 py-2 flex items-center justify-center gap-2">
+        <button className="rounded-lg bg-background border border-border px-2 py-2 flex items-center justify-center gap-2 cursor-pointer">
           <ArrowDownUp />
           <p className="font-normal">جدید ترین پیام ها</p>
         </button>

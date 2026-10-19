@@ -8,7 +8,7 @@ export const Dashbordlayouts = [
     layoutText: "داشبورد",
   },
   {
-    slug: "messages",
+    slug: "contact-messages",
     layoutTitle: "درخواست ها",
     layoutIcon: Mail,
     layoutText: "پیام های دریافتی",
@@ -21,7 +21,7 @@ export const DashbordBodyItems = [
     description: "نمای کلی وضعیت و اطلاعات پنل مدیریت آرکات",
   },
   {
-    slug: "messages",
+    slug: "contact-messages",
     title: "پیام های دریافتی",
     description: "دریافت پیام هایی از طرف مدیریت و کارمندان",
   },
@@ -44,7 +44,8 @@ export const DashbordCardItem = [
     name: "request",
     phone: "099937575555",
     email: "maminshavandi232@gmail.com",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquas",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquas",
     day: 22,
     month: "مهر",
     year: 1405,
@@ -56,7 +57,8 @@ export const DashbordCardItem = [
     name: "number",
     phone: "09126472555",
     email: "maminshavandi1524@gmail.com",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquas",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquas",
     day: 2,
     month: "آبان",
     year: 1405,
@@ -68,7 +70,8 @@ export const DashbordCardItem = [
     name: "response",
     phone: "09368791234",
     email: "amir@email.com",
-    message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquas",
+    message:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquas",
     day: 12,
     month: "مهر",
     year: 1405,
