@@ -8,7 +8,7 @@ export default function ContactMassege() {
     <div className="flex flex-col w-full">
       <DashbordHeader items={DashbordBodyItems[1]} />
       <div className="px-4 py-5">
-        {/*<DashbordSection />*/}
+        <DashbordSection />
       </div>
     </div>
   );
