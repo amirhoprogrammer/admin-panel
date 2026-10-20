@@ -14,7 +14,7 @@ export default function DashbordSidebar() {
   return (
     <aside className="border-border-secondary bg-background flex h-screen w-71.25 shrink-0 flex-col border-l pb-4">
       {/* 285px = 71.25 */}
-      <div className="border-border shrink-0  px-4">
+      <div className="border-border shrink-0 px-4">
         {/* 78px = 19.5 */}
         <div className="border-border-secondary flex min-h-19.5 items-center border-b px-2">
           <div className="flex min-w-0 flex-col">
