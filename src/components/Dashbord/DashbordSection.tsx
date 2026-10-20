@@ -12,8 +12,8 @@ const rows = [
 ];
 export default function DashbordSection() {
   return (
-    <div className="rounded-lg bg-background border border-border">
-      <div className="flex items-center justify-between py-4 px-2">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-lg border border-border bg-background">
+      <div className="flex shrink-0 items-center justify-between py-4 px-2 min-h-0">
         <div className="shrink-0 hidden lg:block">
           {/* 300px = 75 */}
           <div className="relative w-75">
@@ -48,20 +48,20 @@ export default function DashbordSection() {
         >
           <Search className="size-5" />
         </button>
-        <button className="rounded-lg bg-background border border-border px-2 py-2 flex items-center justify-center gap-2 cursor-pointer">
-          <ArrowDownUp />
-          <p className="font-normal">جدید ترین پیام ها</p>
+        <button className="rounded-lg bg-background border border-border px-5 py-2 flex items-center justify-center gap-2 cursor-pointer">
+          <ArrowDownUp className="size-4" />
+          <p className="font-normal mb-1">جدید ترین پیام ها</p>
         </button>
       </div>
-      <div className="bg-secondary-bg flex items-center justify-between py-4 px-4">
+      <div className="bg-secondary-bg shrink-0 grid grid-cols-[0.5fr_1.25fr_0.75fr_1.5fr_1.25fr_1.25fr_0.5fr] py-4 px-6 gap-4">
         {rows.map((row, id) => (
-          <p className="font-normal text-muted-foreground" key={id}>
+          <p className="font-normal text-sm text-muted-foreground" key={id}>
             {row}
           </p>
         ))}
       </div>
       {/* 450px = 112.5 */}
-      <div className="flex flex-col gap-2 px-4 py-2 h-112.5">
+      <div className="flex-1 min-h-0 overflow-y-auto px-4 py-2">
         {DashbordCardItem.map((card, id) => (
           <DashbordCard items={card} key={id} />
         ))}

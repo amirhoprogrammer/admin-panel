@@ -58,23 +58,20 @@ export default function DashbordCard({ items }: { items: Cards }) {
   return (
     <div
       onClick={() => setSelected(1)}
-      className="flex items-center justify-between rounded-lg border border-border px-2 py-2"
+      className="grid grid-cols-[0.5fr_1.25fr_0.75fr_1.5fr_1.25fr_1.25fr_0.5fr] items-center rounded-lg border border-border px-2 py-4 gap-4 my-2"
     >
-      <p className="font-normal text-muted-foreground">{items.id}</p>
-      <p className="font-normal">{items.name}</p>
-      <p className="font-normal text-muted-foreground">{items.phone}</p>
-      <p className="font-normal text-muted-foreground">{items.email}</p>
-      {/* 75px = 18.75 */}
-      <p
-        className="font-normal text-muted-foreground w-18.75 truncate"
-        dir="ltr"
-      >
+      <p className="font-normal text-muted-foreground text-sm ">{items.id}</p>
+      <p className="font-semibold text-sm">{items.name}</p>
+      <p className="font-normal text-muted-foreground text-sm">{items.phone}</p>
+      <p className="font-normal text-muted-foreground text-sm">{items.email}</p>
+      {/* 75px = 18.75 , 100px = 25*/}
+      <p className="font-normal text-muted-foreground line-clamp-2 text-justify text-sm">
         {items.message}
       </p>
-      <p className="font-normal text-muted-foreground">
+      <p className="font-normal text-muted-foreground text-sm">
         {dates(items.day, items.month, items.year, items.hour, items.minute)}
       </p>
-      <button className="bg-delete rounded-lg py-4 px-4 flex gap-2">
+      <button className="bg-delete rounded-lg py-2 px-4 flex gap-2">
         <Trash className="text-destructive size-4.5 mt-1" />
         <p className="text-destructive font-semibold text-sm">حذف</p>
       </button>

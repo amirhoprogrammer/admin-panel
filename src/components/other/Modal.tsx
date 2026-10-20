@@ -23,7 +23,7 @@ export default function Modal({
         className="absolute inset-0 bg-gray backdrop-blur-sm"
         onClick={onClose}
       />
-      <div className="relative bg-modal rounded-2xl shadow-2xl w-full max-w-4xl max-h-screen mx-4 p-6 animate-in fade-in zoom-in duration-200">
+      <div className="relative bg-background rounded-2xl shadow-2xl w-full max-w-4xl max-h-screen mx-4 p-6 animate-in fade-in zoom-in duration-200">
         <button
           onClick={onClose}
           className="absolute top-4 left-4 text-gray-400 hover:text-gray-600 text-2xl leading-none border-border border"
