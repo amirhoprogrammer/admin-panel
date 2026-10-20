@@ -18,14 +18,9 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={iranYekan.variable}>
       <body className="font-sans antialiased ">
-        <main className="w-full flex h-screen overflow-hidden">
-          {/* 285px = 71.25 */}
-          <div className="shrink-0 w-71.25 ">
-            <DashbordSidebar />
-          </div>
-          <div className="w-full flex flex-col overflow-hidden">
-            {children}
-          </div>
+        <main className="bg-background text-foreground flex h-screen overflow-hidden">
+          <DashbordSidebar />
+          <div className="w-full flex flex-col overflow-hidden">{children}</div>
         </main>
       </body>
     </html>

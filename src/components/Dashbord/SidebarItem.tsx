@@ -16,8 +16,8 @@ export default function SidebarItem({ link, Icon, text, active }: Props) {
       onClick={() => setClick(1)}
       href={link}
       className={cn(
-        "group flex w-full items-center gap-4 rounded-lg px-4 py-2 hover:bg-secondary-bg",
-        active ? "bg-secondary-bg" : "bg-background"
+        " group relative mb-1 flex h-12 items-center gap-2.5 rounded-lg px-3.5 text-[15px] font-medium duration-300 hover:border-border hover:bg-secondary-bg/60",
+        active ? "bg-secondary-bg border border-border" : "bg-background"
       )}
     >
       <Icon
@@ -28,7 +28,7 @@ export default function SidebarItem({ link, Icon, text, active }: Props) {
       />
       <p
         className={cn(
-          "pb-1 group-hover:text-foreground font-semibold text-muted-foreground hover:text-foreground",
+          "min-w-0 truncate pb-1 group-hover:text-foreground font-semibold text-muted-foreground hover:text-foreground",
           active ? "text-foreground" : "text-muted-foreground"
         )}
       >
