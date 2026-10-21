@@ -7,7 +7,7 @@ interface HeaderItems {
 }
 export default function DashbordHeader({ items }: { items: HeaderItems }) {
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
+    <div className="flex min-h-0 flex-col">
       <div className="border-b-border-secondary 3xl:px-8 3xl:py-6 flex shrink-0 items-center justify-between border-b px-8 py-6 xl:px-5 xl:py-5 2xl:px-6">
         <div className="min-w-0 pe-6">
           <h1 className="header-title 3xl:text-[26px] mb-2 text-[26px] font-semibold xl:text-[22px] 2xl:text-[24px]">

@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowDownUp, Search } from "lucide-react";
 import DashbordCard from "./DashbordCard";
 import { DashbordCardItem } from "@/data/dashbord";
@@ -11,6 +14,17 @@ const rows = [
   "عملیات",
 ];
 export default function DashbordSection() {
+  const [isSortedByNewest, setIsSortedByNewest] = useState(false);
+
+  // مرتب‌سازی بر اساس شناسه، از بزرگ به کوچک
+  const displayedCards = isSortedByNewest
+    ? [...DashbordCardItem].sort((a, b) => b.id - a.id)
+    : DashbordCardItem;
+
+  function handleSortByNewest() {
+    setIsSortedByNewest(true);
+  }
+
   return (
     <div className="flex h-full min-h-0 flex-col overflow-hidden rounded-lg border border-border bg-background">
       <div className="flex shrink-0 items-center justify-between py-4 px-2 min-h-0">
@@ -48,7 +62,10 @@ export default function DashbordSection() {
         >
           <Search className="size-5" />
         </button>
-        <button className="rounded-lg bg-background border border-border px-5 py-2 flex items-center justify-center gap-2 cursor-pointer">
+        <button
+          className="rounded-lg bg-background border border-border px-5 py-2 flex items-center justify-center gap-2 cursor-pointer"
+          onClick={handleSortByNewest}
+        >
           <ArrowDownUp className="size-4" />
           <p className="font-normal mb-1">جدید ترین پیام ها</p>
         </button>
@@ -62,7 +79,7 @@ export default function DashbordSection() {
       </div>
       {/* 450px = 112.5 */}
       <div className="flex-1 min-h-0 overflow-y-auto px-4 py-2">
-        {DashbordCardItem.map((card, id) => (
+        {displayedCards.map((card, id) => (
           <DashbordCard items={card} key={id} />
         ))}
       </div>
