@@ -23,7 +23,7 @@ export default function SidebarItem({ link, Icon, text, active }: Props) {
       <Icon
         className={cn(
           "size-4 shrink-0 group-hover:text-foreground text-muted-foreground ",
-          active ? "text-brand" : "text-muted-foreground "
+          active ? "text-brand group-hover:text-brand" : "text-muted-foreground "
         )}
       />
       <p

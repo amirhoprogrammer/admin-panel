@@ -29,7 +29,7 @@ export default function DashbordSidebar() {
       </div>
       <nav className="flex flex-col gap-y-3 px-4 pt-3 w-full">
         {/* dashbord */}
-        <div className="my-3 flex flex-col gap-2">
+        <div className=" flex flex-col gap-2">
           <SidebarItemHeader title="نمای کلی" />
           <SidebarItem
             link="/"
@@ -39,7 +39,7 @@ export default function DashbordSidebar() {
           />
         </div>
         {/* dashbord */}
-        <div className="my-3 flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <SidebarItemHeader title="درخواست ها" />
           <SidebarItem
             link="/contact-messages"
