@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import type { FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { LogIn } from "lucide-react";
 
 type FormErrors = {
@@ -37,24 +36,54 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState("");
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  
+async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  e.preventDefault();
 
-    const validationErrors = validate(email, password);
-    setErrors(validationErrors);
+  setServerError("");
 
-    // اگر خطایی وجود داشت، متوقف شو
-    if (Object.keys(validationErrors).length > 0) return;
+  const validationErrors = validate(email, password);
+  setErrors(validationErrors);
 
-    setLoading(true);
-    try {
-      router.push("/login");
-      router.refresh();
-    } finally {
-      setLoading(false);
+  // اگر اعتبارسنجی فرم ناموفق بود، درخواست نفرست
+  if (Object.keys(validationErrors).length > 0) return;
+
+  setLoading(true);
+
+  try {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email.trim(),
+        password,
+      }),
+    });
+
+    const result = await response.json().catch(() => null);
+
+    // نمایش خطای برگشتی از Route Handler
+    if (!response.ok) {
+      setServerError(
+        result?.message || "ورود ناموفق بود. ایمیل و رمز عبور را بررسی کنید."
+      );
+      return;
     }
+
+    // توکن قبلاً در Route Handler داخل کوکی ذخیره شده است.
+    router.replace("/");
+    router.refresh();
+  } catch {
+    setServerError("ارتباط با سرور برقرار نشد. دوباره تلاش کنید.");
+  } finally {
+    setLoading(false);
   }
+}
+
 
   return (
     <div className="w-full max-w-md w90 py-5 md:shadow-lg md:rounded-lg md:bg-background">
@@ -67,9 +96,7 @@ export default function LoginForm() {
           className="w-10 h-7.5 md:w-12.5 md:h-10 lg:w-15 lg:h-12.5"
         />*/}
         {/* 20px = 5 , 30px = 7.5 , 40px = 10, 50px = 12.5 , 60px = 15 */}
-        <h1 className="text-xl font-semibold text-start">
-          ورود به پنل مدیریت
-        </h1>
+        <h1 className="text-xl font-semibold text-start">ورود به پنل مدیریت</h1>
       </div>
       {/* 20px = 5 */}
       <div className="my-4">
@@ -136,17 +163,26 @@ export default function LoginForm() {
               className="border border-border outline-none rounded-lg p-2 w-full    px-4 h-13 bg-background"
             />
           </div>
+          {serverError && (
+            <p
+              role="alert"
+              className="rounded-lg bg-destructive/10 p-3 text-sm text-destructive"
+            >
+              {serverError}
+            </p>
+          )}
           {/* 40px = 10 */}
           <button
-            className="border border-border bg-brand text-background cursor-pointer rounded-lg w-full flex items-center justify-center gap-2 h-13 mt-10"
+            className="border border-border bg-brand text-background cursor-pointer rounded-lg w-full flex items-center justify-center gap-2 h-13 mt-10 disabled:cursor-not-allowed disabled:opacity-60"
             type="submit"
             disabled={loading}
           >
-            <LogIn className="" />
+            <LogIn />
             <span className="mb-2">
-              {loading ? "در حال ورود به پنل ..." : "ورود به پنل"}
+              {loading ? "در حال ورود به پنل..." : "ورود به پنل"}
             </span>
           </button>
+          
         </form>
         <div className="text-center flex items-center justify-center gap-2 my-4">
           <h6 className="text-sm text-muted-foreground ">
