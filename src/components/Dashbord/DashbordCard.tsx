@@ -84,8 +84,8 @@ export default function DashbordCard({ items, onDeleted }: DashbordCardProps) {
         <p className="text-sm text-muted-foreground">{items.phone_number}</p>
 
         <p className="break-all text-sm text-muted-foreground">{items.email}</p>
-
-        <p className="line-clamp-2 text-justify text-sm text-muted-foreground break-words">
+        {/* break-words = wrap-break-word*/}
+        <p className="line-clamp-2 text-justify text-sm text-muted-foreground wrap-break-word">
           {items.message}
         </p>
 
@@ -182,9 +182,9 @@ export default function DashbordCard({ items, onDeleted }: DashbordCardProps) {
 
               <p className="text-base font-semibold">متن پیام</p>
             </div>
-
+            {/* break-words = wrap-break-word*/}
             <div className="rounded-lg bg-secondary-bg px-4 py-3">
-              <p className="whitespace-pre-wrap break-words text-sm leading-7">
+              <p className="whitespace-pre-wrap wrap-break-word text-sm leading-7">
                 {items.message}
               </p>
             </div>

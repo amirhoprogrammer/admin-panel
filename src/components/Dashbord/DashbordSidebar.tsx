@@ -1,7 +1,7 @@
 "use client";
 import { Dashbordlayouts } from "@/data/dashbord";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Mail, Sidebar } from "lucide-react";
+import { FolderPlus, LayoutDashboard, Mail, Package, PackagePlus, Sidebar, Tag } from "lucide-react";
 import Link from "next/link";
 import SidebarItemHeader from "./SidebarItemHeader";
 import SidebarItem from "./SidebarItem";
@@ -38,7 +38,7 @@ export default function DashbordSidebar() {
             active={pathname === "/"}
           />
         </div>
-        {/* dashbord */}
+        {/* contact-message */}
         <div className="flex flex-col gap-2">
           <SidebarItemHeader title="درخواست ها" />
           <SidebarItem
@@ -46,6 +46,38 @@ export default function DashbordSidebar() {
             Icon={Mail}
             text="پیام های دریافتی"
             active={pathname === "/contact-messages"}
+          />
+        </div>
+        {/* category */}
+        <div className="flex flex-col gap-2">
+          <SidebarItemHeader title="مدیریت دسته بندی" />
+          <SidebarItem
+            link="/categories"
+            Icon={Tag}
+            text="لیست دسته بندی ها"
+            active={pathname === "/categories"}
+          />
+          <SidebarItem
+            link="/categories/add"
+            Icon={FolderPlus}
+            text="افزودن دسته بندی"
+            active={pathname === "/categories/add"}
+          />
+        </div>
+        {/* products */}
+        <div className="flex flex-col gap-2">
+          <SidebarItemHeader title="مدیریت محصولات" />
+          <SidebarItem
+            link="/product"
+            Icon={Package}
+            text="لیست محصولات"
+            active={pathname === "/product"}
+          />
+          <SidebarItem
+            link="/product/add"
+            Icon={PackagePlus}
+            text="افزودن محصول"
+            active={pathname === "/product/add"}
           />
         </div>
       </nav>

@@ -23,8 +23,29 @@ export const DashbordBodyItems = [
   {
     slug: "contact-messages",
     title: "پیام های دریافتی",
-    description: "دریافت پیام هایی از طرف مدیریت و کارمندان",
+    description: "مدیریت پیام‌های ارسال‌شده از طریق فرم تماس سایت",
   },
+  {
+    slug: "categories",
+    title: "دسته بندی ها",
+    description: "مدیریت دسته بندیها و زیردسته بندیهای محصولات فروشگاه",
+  },
+  {
+    slug: "categories/add",
+    title: "افزودن دسته‌بندی",
+    description: "ایجاد دسته‌بندی اصلی برای محصولات فروشگاه",
+  },
+  {
+    slug: "product",
+    title: "مدیریت محصولات",
+    description: "مشاهده، ویرایش و حذف محصولات فروشگاه آرکات",
+  },
+  {
+    slug: "product/add",
+    title: "افزودن محصول",
+    description: "ثبت محصول جدید در فروشگاه آرکات",
+  },
+  
 ];
 export const DashbordCardItem = [
   {
