@@ -21,6 +21,7 @@ export default function LogoutButton() {
       });
 
       const result = await response.json().catch(() => null);
+      console.log(result);
 
       if (!response.ok) {
         setError(result?.detail || "خروج انجام نشد.");
